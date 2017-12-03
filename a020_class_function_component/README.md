@@ -38,6 +38,7 @@
 
 ## 合理的组件目录结构
 
+### 0 单js文件项目
 组件完全可以用单个js文件来实现，比如下面的例子：
 
 ```javascript
@@ -70,7 +71,7 @@ ReactDOM.render(jsx, document.getElementById('root'));
 
 因此需要对目录结构进行调整。
 
-### 1 组件归类到 components 目录
+### 2 组件归类到 components 目录
 具体的做法：
 * 首先把所有的组件单独做成一个文件，比如 Title 部分做成 Title.js 文件。
 * 这些组件都归类放在 /src/components/ 目录下，Title.js 与 Subtitle.js 都放在 /src/components/ 目录下
@@ -116,12 +117,69 @@ class App extends Component {
 }
 export default App;
 
-/*   */
+/* /src/components/Title.js  */
+import React from 'react';
 
+class Title extends React.Component {
+  render() {
+    return (
+      <h1>Here is title</h1>
+    );
+  }
+}
+export default Title;
 
+/* /src/components/Subitle.js  */
+import React from 'react';
 
-
+const subtitle = () => (
+  <h2>Subtitle</h2>
+);
+export default subtitle;
 
 ```
 
 
+### 3 组件归类到 components 目录
+
+本次调整的目的：
+* 将『有状态的组件』放在containers（容器）目录下，把『无状态的组件』放在 components 目录下。管理状态时，直接倒 containers 目录下去处理。
+* assets 放图片、logo等资源文件
+* layout 放 UI 相关组件
+
+对于 /src/ 目录结构调整如下
+```
+.
+├── App.js
+├── assets
+├── components
+│   └── Subtitle.js
+├── containers
+│   └── Title.js
+├── index.js
+├── layout
+└── template.html
+```
+
+对于前次的代码只需要更改 Title.js 的引入目录即可。
+```javascript
+/* /src/App.js */
+import React, { Component } from 'react';
+import Title from './containers/Title'
+import Subtitle from './components/Subtitle'
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <Title />
+        <Subtitle />
+      </div>
+    );
+  }
+}
+export default App;
+```
+
+## 类与函数作为组件
+两者作为组件有一些详细内容需要说明，放在后面的章节处理。
