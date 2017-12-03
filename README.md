@@ -15,7 +15,7 @@
 
 
 
-**[React 拾遗：类组件与函数组件](https://github.com/Timm-Lee/React-Pearls/tree/master/a020_class_function_component)**
+**[React 拾遗：有状态组件与无状态组件](https://github.com/Timm-Lee/React-Pearls/tree/master/a020_class_function_component)**
 
 * 区分有状态组件（statefull component）与无状态组件（stateless component）
 * 合理的组件目录结构
