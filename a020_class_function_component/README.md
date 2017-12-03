@@ -12,7 +12,7 @@
 * 合理的组件目录结构
 
 
-**项目代码地址：[React 拾遗：类组件与函数组件](https://gitee.com/TimmLee/React-Perls/tree/master/a020_class_function_component)**
+**项目代码地址：[React 拾遗：有状态组件与无状态组件](https://gitee.com/TimmLee/React-Perls/tree/master/a020_class_function_component)**
 
 
 ## 组件的类型
@@ -38,7 +38,7 @@
 
 ## 合理的组件目录结构
 
-### 0 单js文件项目
+### 1 单js文件项目
 组件完全可以用单个js文件来实现，比如下面的例子：
 
 ```javascript
